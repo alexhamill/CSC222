@@ -9,4 +9,3 @@ int main() {
     print_twice('a');
     return 0;
 }
-

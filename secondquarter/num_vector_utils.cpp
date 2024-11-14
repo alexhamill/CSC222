@@ -38,3 +38,13 @@ vector<int> only_evens(const vector<int>& nums){
     }
     return final;
 }
+vector<int> only_odds(const vector<int>& nums){
+    vector<int> final={};
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]%2==1){
+            final.push_back(nums[i]);
+        }
+    }
+    return final;
+}
+

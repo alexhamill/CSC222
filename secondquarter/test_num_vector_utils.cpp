@@ -31,3 +31,13 @@ TEST_CASE("Testing num_vector_sum") {
     vector<int> num3 = {};
     CHECK(0 == num_vector_sum(num3));
 }
+TEST_CASE("Testing num_vector_product") {
+    vector<int> nums = {2, 3, 7};
+    CHECK(42 == num_vector_product(nums));
+    vector<int> nums2 = {1, 3, 7, 4, 6, 1};
+    CHECK(22 == num_vector_sum(nums2));
+    vector<int> num3 = {0};
+    CHECK(0 == num_vector_sum(num3));
+    vector<int> num4 = {};
+    CHECK(0 == num_vector_sum(num3));
+}

@@ -21,3 +21,10 @@ int num_vector_sum(const vector<int>& nums){
     }
     return sum;
 }
+int num_vector_product(const vector<int>& nums){
+    int prodct = nums[0];
+    for(int i=1;i<nums.size();i++){
+        prodct *= nums[i];
+    }
+    return prodct;
+}

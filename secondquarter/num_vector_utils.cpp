@@ -68,3 +68,29 @@ double nums_mean(const vector<int>& nums){
     }
     return mean;
 }
+
+vector<int> nums_median(const vector<int>& nums){
+    vector<int> l = nums;
+    vector<int> sorted = l;
+    vector<int> median;
+    int half = sorted.size()/2;
+    if(sorted.size()%2==0){
+        median.push_back(sorted[half-1]);
+    }
+    median.push_back(sorted[half]);
+    return median;
+}
+
+vector<int> sort(const vector<int>& nums){
+    vector<int> sorted = nums;
+    int temp;
+    for(int i=0;i<sorted.size();i++){
+    for(int i=1;i<sorted.size();i++){
+        if(sorted[i]<sorted[i-1]){
+            temp = sorted[i];
+            sorted[i] = sorted[i-1];
+            sorted[i-1] = temp;
+        }
+    }}
+    return sorted;
+}

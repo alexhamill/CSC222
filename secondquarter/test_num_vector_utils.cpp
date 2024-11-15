@@ -76,4 +76,21 @@ TEST_CASE("Testing nums_mean"){
     double expected2 = 4.2;
     CHECK(nums_mean(nums)==expected);
 }
-
+TEST_CASE("Testing median"){
+    vector<int> nums={6,5,4,3,2,1};
+    vector<int> sorted = sort(nums);
+    vector<int> median = nums_median(sorted); // for some reason I was unable to run a function in the num_vector_utils.cpp
+    string expected = "3 4";
+    CHECK(render_num_vector(median)==expected);
+    vector<int> nums2={6,5,4,3,2};
+    vector<int> sorted2 = sort(nums2);
+    vector<int> median2 = nums_median(sorted2);
+    string expected2 = "4";
+    CHECK(render_num_vector(median2)==expected2);
+}
+TEST_CASE("Testing sort"){
+    vector<int> nums={6,5,4,3,2,1};
+    vector<int> sorted = sort(nums);
+    string expected = "1 2 3 4 5 6";
+    CHECK(render_num_vector(sorted)==expected);
+}

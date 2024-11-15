@@ -15,3 +15,7 @@ vector<int> only_odds(const vector<int>&);
 vector<int> nums_between(const vector<int>& nums, int high, int low);
 
 double nums_mean(const vector<int>& nums);
+
+vector<int> nums_median(const vector<int>& nums);
+
+vector<int> sort(const vector<int>& nums);

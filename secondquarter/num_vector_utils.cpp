@@ -57,3 +57,14 @@ vector<int> nums_between(const vector<int>& nums, int low, int high){
     }
     return final;
 }
+
+double nums_mean(const vector<int>& nums){
+    double mean=0;
+    for(int i=0;i<nums.size();i++){
+        mean += nums[i];
+    }
+    if (nums.size() != 0){
+        mean/nums.size();
+    }
+    return mean;
+}

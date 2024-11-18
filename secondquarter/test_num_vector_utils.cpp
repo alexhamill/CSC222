@@ -94,3 +94,6 @@ TEST_CASE("Testing sort"){
     string expected = "1 2 3 4 5 6";
     CHECK(render_num_vector(sorted)==expected);
 }
+TEST_CASE("Testing mode"){
+    
+}

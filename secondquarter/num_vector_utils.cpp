@@ -94,3 +94,9 @@ vector<int> sort(const vector<int>& nums){
     }}
     return sorted;
 }
+vector<int> nums_mode(const vector<int>& nums){
+    vector<int> mode = {};
+    for(i=0;i<nums.size;i++){
+        
+    }
+}

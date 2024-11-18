@@ -7,5 +7,6 @@ int main(){
     current_time.print();
     current_time.increment(1000);
     current_time.print();
+    cout << current_time.convert_to_seconds();
     return 0;
 }

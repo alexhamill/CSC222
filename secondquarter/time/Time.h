@@ -4,5 +4,6 @@ struct Time {
     double second;
 
     void print() const;
-    
+    void increment(double);
+
 };

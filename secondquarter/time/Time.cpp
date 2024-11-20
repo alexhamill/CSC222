@@ -61,8 +61,11 @@ Time::Time(){
     minute = 0;
 }
 Time::Time(int h, int m){
-
+ hour = h;
+ minute = m;
 }
 Time::Time(int h,int m,double s){
-    
+    hour = h;
+    minute = m;
+    second = s;
 }

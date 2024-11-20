@@ -60,3 +60,9 @@ Time::Time(){
     second = 0;
     minute = 0;
 }
+Time::Time(int h, int m){
+
+}
+Time::Time(int h,int m,double s){
+    
+}

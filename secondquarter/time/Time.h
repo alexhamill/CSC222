@@ -16,4 +16,6 @@ struct Time {
     Time(double secs);
     string to_string() const;
     Time();
+    Time(int,int);
+    Time(int,int,double);
 };

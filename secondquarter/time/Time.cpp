@@ -24,3 +24,14 @@ double Time::convert_to_seconds() const
     double seconds = minutes * 60 + second;
     return seconds;
 }
+double Time::secsuntill(Time secondtime) const{
+    double sec1 = convert_to_seconds();
+    double sec2 = secondtime.convert_to_seconds();
+    return sec2 - sec1;
+}
+double Time::minsuntill(Time secondtime) const{
+    return secsuntill(secondtime)/60;
+}
+double Time::hoursuntill(Time secondtime) const{
+    return minsuntill(secondtime)/60;
+}

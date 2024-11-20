@@ -1,3 +1,7 @@
+#include <string>
+#include <vector>
+using namespace std;
+
 struct Time {
     int hour;
     int minute;
@@ -10,4 +14,6 @@ struct Time {
     double minsuntill(Time) const;
     double hoursuntill(Time) const;
     Time(double secs);
+    string to_string() const;
+    Time();
 };

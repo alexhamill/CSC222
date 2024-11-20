@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Time.h"
+#include <string>
 using namespace std;
 
 int main(){
@@ -20,3 +21,4 @@ int main(){
     cout << " -> " << newtime.convert_to_seconds();
     return 0;
 }
+

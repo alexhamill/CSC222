@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Time.h"
 using namespace std;
+#include <string>
 
 void Time::print() const
 {
@@ -41,4 +42,21 @@ Time::Time(double secs){
     minute = int(secs / 60.0);
     secs -= minute * 60;
     second = secs;
+}
+string Time::to_string() const{
+    string value = std::to_string(hour) + ":";
+    if(minute<10){
+        value +="0";
+    }
+    value += std::to_string(minute) + ":";
+    if(second<10){
+        value +="0";
+    }
+    value += std::to_string(int(second));
+    return value;
+}
+Time::Time(){
+    hour = 0;
+    second = 0;
+    minute = 0;
 }

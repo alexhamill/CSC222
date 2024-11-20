@@ -18,6 +18,6 @@ struct Time {
     Time();
     Time(int,int);
     Time(int,int,double);
-    
+    void fix();
     Time operator+(const Time& );
 };

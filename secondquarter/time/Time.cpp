@@ -70,6 +70,18 @@ Time::Time(int h,int m,double s){
     second = s;
 }
 
+void Time::fix(){
+   while(second>60){
+       second -= 60;
+       minute += 1;
+   }
+   while(minute>60){
+       minute -=60;
+       hour +=1;
+   }
+}
 Time Time::operator+(const Time& other) {
-    
+   Time result(hour + other.hour,minute + other.minute, second + other.second);
+   result.fix();
+   return result;
 }

@@ -69,3 +69,7 @@ Time::Time(int h,int m,double s){
     minute = m;
     second = s;
 }
+
+Time Time::operator+(const Time& other) {
+    
+}

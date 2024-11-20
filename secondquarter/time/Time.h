@@ -18,4 +18,6 @@ struct Time {
     Time();
     Time(int,int);
     Time(int,int,double);
+    
+    Time operator+(const Time& );
 };

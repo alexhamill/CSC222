@@ -35,3 +35,10 @@ double Time::minsuntill(Time secondtime) const{
 double Time::hoursuntill(Time secondtime) const{
     return minsuntill(secondtime)/60;
 }
+Time::Time(double secs){
+    hour = int(secs / 3600.0);
+    secs -= hour * 3600.0;
+    minute = int(secs / 60.0);
+    secs -= minute * 60;
+    second = secs;
+}

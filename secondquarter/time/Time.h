@@ -9,5 +9,5 @@ struct Time {
     double secsuntill(Time) const;
     double minsuntill(Time) const;
     double hoursuntill(Time) const;
-
+    Time(double secs);
 };

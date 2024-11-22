@@ -7,9 +7,10 @@ Point::Point(){
     x=0;
     y=0;
 }
-Point::Point(int inx){
-    
+Point::Point(int xin){
+    x=xin;
 }
-Point::Point(int inx, int iny){
-    
+Point::Point(int xin, int yin){
+    x=xin;
+    y=yin;
 }

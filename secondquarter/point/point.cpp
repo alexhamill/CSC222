@@ -7,10 +7,10 @@ Point::Point(){
     x=0;
     y=0;
 }
-Point::Point(int xin){
+Point::Point(double xin){
     x=xin;
 }
-Point::Point(int xin, int yin){
+Point::Point(double xin, double yin){
     x=xin;
     y=yin;
 }
@@ -18,3 +18,6 @@ Point Point::operator+(const Point& second){
     Point result(x+second.x,y+second.y);
     return result;
 }
+string Point::to_string(){
+    return "test";
+    }

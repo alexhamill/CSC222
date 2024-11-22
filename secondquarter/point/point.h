@@ -3,12 +3,12 @@
 using namespace std;
 
 struct Point{
-    int x;
-    int y;
+    double x;
+    double y;
 
     Point();
-    Point(int);
-    Point(int,int);
+    Point(double);
+    Point(double,double);
     Point operator+(const Point&);
-
+    string to_string();
 };

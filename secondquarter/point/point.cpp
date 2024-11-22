@@ -19,5 +19,5 @@ Point Point::operator+(const Point& second){
     return result;
 }
 string Point::to_string(){
-    return "test";
+    return "("+std::to_string(x)+", "+std::to_string(y)+")";
     }

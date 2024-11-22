@@ -25,3 +25,9 @@ TEST_CASE("Test can render Points as strings") {
     string expected = "(8.000000, 7.000000)";
     CHECK(p.to_string() == expected);
 }
+TEST_CASE("Test subtract"){
+    Point p1(3,4);
+    Point p2(2,3);
+    Point expected(1,1);
+    CHECK((p1-p2).to_string() == expected.to_string());
+}

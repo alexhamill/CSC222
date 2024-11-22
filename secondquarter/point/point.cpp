@@ -21,3 +21,7 @@ Point Point::operator+(const Point& second){
 string Point::to_string(){
     return "("+std::to_string(x)+", "+std::to_string(y)+")";
     }
+Point Point::operator-(const Point& second){
+    Point result(x-second.x,y-second.y);
+    return result;
+}

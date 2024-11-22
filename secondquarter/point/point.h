@@ -11,4 +11,5 @@ struct Point{
     Point(double,double);
     Point operator+(const Point&);
     string to_string();
+    Point operator-(const Point&);
 };

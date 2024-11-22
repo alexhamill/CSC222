@@ -85,3 +85,7 @@ Time Time::operator+(const Time& other) {
    result.fix();
    return result;
 }
+ostream& operator<<(ostream& out, Time t) {
+    out << t.to_string();
+    return out;
+}

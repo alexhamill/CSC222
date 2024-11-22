@@ -20,4 +20,6 @@ struct Time {
     Time(int,int,double);
     void fix();
     Time operator+(const Time& );
+    
 };
+ostream& operator<<(ostream&,Time);

@@ -18,7 +18,8 @@ int main(){
     // cout << current_time.print() << " -> " << current_time.convert_to_seconds();     I Added the constructers and now it doesnt work the preivous way
     Time newtime(25506.5);
     newtime.print();
-    cout << " -> " << newtime.convert_to_seconds();
+    cout << " -> " << newtime.convert_to_seconds() << endl;
+    cout << endl << newtime << "\n end";    
     return 0;
 }
 

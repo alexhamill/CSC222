@@ -14,3 +14,6 @@ Point::Point(int xin, int yin){
     x=xin;
     y=yin;
 }
+Point Point::operator+(const Point& second){
+    
+}

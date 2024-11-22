@@ -15,5 +15,6 @@ Point::Point(int xin, int yin){
     y=yin;
 }
 Point Point::operator+(const Point& second){
-    
+    Point result(x+second.x,y+second.y);
+    return result;
 }

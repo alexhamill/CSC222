@@ -9,4 +9,5 @@ struct Card
     Card();
     Card(int s, int r);
     string to_string() const;
+    bool operator==(const Card&) const;
 };

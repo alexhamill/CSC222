@@ -102,3 +102,15 @@ TEST_CASE("subtract") {
     Fraction f3 = f1-f2;
     CHECK(f3.to_string() == "1/2");
 }
+TEST_CASE("Test comparison operators for Fractions") {
+    Fraction f1(1, 4);
+    Fraction f2(3, 4);
+    Fraction f3(2, 5);
+    Fraction f4(6, 8);
+    CHECK((f2 > f1) == true);
+    CHECK((f2 == f4) == true);
+    CHECK((f1 < f3) == true);
+    CHECK((f3 != f2) == true);
+    CHECK((f4 >= f1) == true);
+    CHECK((f4 <= f2) == true);
+}

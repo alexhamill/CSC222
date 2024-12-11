@@ -99,3 +99,64 @@ Fraction Fraction::operator+(Fraction f2) const{
     n2 *= denominator;
     return Fraction((n1+n2),(d1));  
 }
+bool Fraction::operator==(const Fraction& c2) const
+{
+    if (numerator == c2.numerator && denominator == c2.denominator) return true;
+    return false;
+}
+
+bool Fraction::operator!=(const Fraction& c2) const
+{
+    if (numerator == c2.numerator && denominator == c2.denominator) return false;
+    return true;
+}
+
+bool Fraction::operator>(const Fraction& c2) const
+{
+    double n = (double)numerator;
+    double d = (double)denominator;
+    double n2 = (double)c2.numerator;
+    double d2 = (double)c2.denominator;
+    if (n/d > n2/d2) {
+        return true;
+    }
+    return false;
+}
+
+bool Fraction::operator<(const Fraction& c2) const
+{
+    double n = (double)numerator;
+    double d = (double)denominator;
+    double n2 = (double)c2.numerator;
+    double d2 = (double)c2.denominator;
+    if (n/d < n2/d2) {
+        return true;
+    }
+    return false;
+}
+
+bool Fraction::operator>=(const Fraction& c2) const
+{
+    if ((numerator == c2.numerator) && (denominator == c2.denominator)) return true;
+    double n = (double)numerator;
+    double d = (double)denominator;
+    double n2 = (double)c2.numerator;
+    double d2 = (double)c2.denominator;
+    if (n/d > n2/d2) {
+        return true;
+    }
+    return false;
+}
+
+bool Fraction::operator<=(const Fraction& c2) const
+{
+    if ((numerator == c2.numerator) && (denominator == c2.denominator)) return true;
+    double n = (double)numerator;
+    double d = (double)denominator;
+    double n2 = (double)c2.numerator;
+    double d2 = (double)c2.denominator;
+    if (n/d < n2/d2) {
+        return true;
+    }
+    return false;
+}

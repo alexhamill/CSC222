@@ -11,5 +11,7 @@ struct Fraction{
     std::string to_string() const;
     Fraction operator*(Fraction) const;
     Fraction operator/(Fraction) const;
+    Fraction operator-(Fraction) const;
+    Fraction operator+(Fraction) const;
 };
 int gcd(int, int);

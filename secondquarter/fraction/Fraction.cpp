@@ -70,12 +70,35 @@ int gcd(int numerator,int denominator){
 Fraction Fraction::operator*(Fraction f2) const{
     int y = denominator * f2.denominator;
     int x = numerator * f2.numerator;
-    int t = gcd(y,x);
-    return Fraction(x/t,y/t);
+    
+    return Fraction(x,y);
 }
 Fraction Fraction::operator/(Fraction f2) const{
     int y = denominator * f2.numerator;
     int x = numerator * f2.denominator;
-    int t = gcd(y,x);
-    return Fraction(x/t,y/t);
+    
+    return Fraction(x,y);
+}
+Fraction Fraction::operator-(Fraction f2) const{
+    int n1 = numerator;
+    int d1 = denominator;
+    int n2 = f2.numerator;
+    int d2 = f2.denominator;
+    n1 *= f2.denominator;
+    d1 *= f2.denominator;
+    n2 *= denominator;
+    d2 *= denominator;
+    return Fraction((n1+d1),(n2+d2));
+}
+Fraction Fraction::operator+(Fraction f2) const{
+    int n1 = numerator;
+    int d1 = denominator;
+    int n2 = f2.numerator;
+    int d2 = f2.denominator;
+    n1 *= f2.denominator;
+    d1 *= f2.denominator;
+    n2 *= denominator;
+    d2 *= denominator;
+    return Fraction((n1-d1),(n2-d2));
+    return 1;
 }

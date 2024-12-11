@@ -13,6 +13,12 @@ Fraction::Fraction(int n, int d)
     numerator = n/t;
     denominator = d/t;
 }
+Fraction::Fraction(int n)
+{
+    numerator = n;
+    denominator = 1;
+}
+
 void Fraction::print() const {
     cout<<numerator<<"/"<<denominator;
 }

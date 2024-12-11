@@ -84,11 +84,10 @@ Fraction Fraction::operator-(Fraction f2) const{
     int d1 = denominator;
     int n2 = f2.numerator;
     int d2 = f2.denominator;
-    n1 *= f2.denominator;
+    n1 = n1 * f2.denominator;
     d1 *= f2.denominator;
     n2 *= denominator;
-    d2 *= denominator;
-    return Fraction((n1+d1),(n2+d2));
+    return Fraction((n1+n2),(d1));
 }
 Fraction Fraction::operator+(Fraction f2) const{
     int n1 = numerator;
@@ -98,7 +97,5 @@ Fraction Fraction::operator+(Fraction f2) const{
     n1 *= f2.denominator;
     d1 *= f2.denominator;
     n2 *= denominator;
-    d2 *= denominator;
-    return Fraction((n1-d1),(n2-d2));
-    return 1;
+    return Fraction((n1-n2),(d1));  
 }

@@ -18,6 +18,25 @@ Fraction::Fraction(int n)
     numerator = n;
     denominator = 1;
 }
+Fraction::Fraction(std::string s){
+    int j=0;
+    for(int i=0;i<s.length();i++){
+        char n = s[i];
+        if(n=='/'){
+            j = i;
+            break;
+        }
+    }
+    if (j==0){
+        numerator = stoi(s);
+        denominator = 1;
+    }
+    else{
+    numerator = stoi(s.substr(0,j));
+    denominator = stoi(s.substr(j+1));
+    }
+}
+
 
 void Fraction::print() const {
     cout<<numerator<<"/"<<denominator;
@@ -46,4 +65,17 @@ int gcd(int numerator,int denominator){
         small--;
     }
     return 1;
+}
+
+Fraction Fraction::operator*(Fraction f2) const{
+    int y = denominator * f2.denominator;
+    int x = numerator * f2.numerator;
+    int t = gcd(y,x);
+    return Fraction(y/t,x/t);
+}
+Fraction Fraction::operator/(Fraction f2) const{
+    int y = denominator * f2.numerator;
+    int x = numerator * f2.denominator;
+    int t = gcd(y,x);
+    return Fraction(y/t,x/t);
 }

@@ -13,6 +13,18 @@ TEST_CASE("print"){
     CHECK(h.to_string()=="3");
     CHECK(g.to_string()=="3/2");
 }
+TEST_CASE("Test can render a Fraction as a string") {
+    Fraction f1(17, 25);
+    CHECK(f1.to_string() == "17/25");
+    Fraction f2(-7, 11);
+    CHECK(f2.to_string() == "-7/11");
+}
+TEST_CASE("Test can render a Fraction as a string") {
+    Fraction f1(17, 25);
+    CHECK(f1.to_string() == "17/25");
+    Fraction f2(-7, 11);
+    CHECK(f2.to_string() == "-7/11");
+}
 
 TEST_CASE("Test can create Fractions using two constructors") {
     Fraction f1;
@@ -48,4 +60,33 @@ TEST_CASE("Test can construct Fraction from integer") {
     Fraction f2(42);
     CHECK(f2.numerator == 42);
     CHECK(f2.denominator == 1);
+}
+TEST_CASE("Test string constructor with integers") {
+    Fraction f1("15");
+    CHECK(f1.numerator == 15);
+    CHECK(f1.denominator == 1);
+    Fraction f2("42");
+    CHECK(f2.numerator == 42);
+    CHECK(f2.denominator == 1);
+}
+TEST_CASE("") {
+    Fraction f1(5);
+    CHECK(f1.numerator == 5);
+    CHECK(f1.denominator == 1);
+    Fraction f2(42);
+    CHECK(f2.numerator == 42);
+    CHECK(f2.denominator == 1);
+}
+
+TEST_CASE("multiply") {
+    Fraction f1(1,2);
+    Fraction f2(3,2);
+    Fraction f3 = f1/f2;
+    CHECK(f3.to_string() == "3/4");
+}
+TEST_CASE("divide") {
+    Fraction f1(1,2);
+    Fraction f2(3,2);
+    Fraction f3 = f1/f2;
+    CHECK(f3.to_string() == "1/3");
 }

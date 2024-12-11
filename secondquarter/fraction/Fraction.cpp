@@ -31,13 +31,13 @@ std::string Fraction::to_string() const{
 }
 
 int gcd(int numerator,int denominator){
-    int i = 1;
-    int gcd;
-    while((i<=denominator) && (i <= numerator)){
-        if ((denominator%i == 0)&&(numerator%i == 0)){
-            gcd = i;
-        }
-        i++;
+    int small = min(numerator, denominator);
+    while(small > 1){
+        if (numerator % small == 0 && denominator % small == 0)
+            {
+            return small;
+            }
+        small--;
     }
-    return gcd;
+    return 1;
 }

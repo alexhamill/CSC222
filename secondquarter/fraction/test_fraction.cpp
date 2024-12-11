@@ -81,12 +81,12 @@ TEST_CASE("") {
 TEST_CASE("multiply") {
     Fraction f1(1,2);
     Fraction f2(3,2);
-    Fraction f3 = f1/f2;
+    Fraction f3 = f1*f2;
     CHECK(f3.to_string() == "3/4");
 }
 TEST_CASE("divide") {
-    Fraction f1(1,2);
-    Fraction f2(3,2);
+    Fraction f1(1);
+    Fraction f2(1,2);
     Fraction f3 = f1/f2;
-    CHECK(f3.to_string() == "1/3");
+    CHECK(f3.to_string() == "2");
 }

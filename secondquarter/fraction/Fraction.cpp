@@ -71,11 +71,11 @@ Fraction Fraction::operator*(Fraction f2) const{
     int y = denominator * f2.denominator;
     int x = numerator * f2.numerator;
     int t = gcd(y,x);
-    return Fraction(y/t,x/t);
+    return Fraction(x/t,y/t);
 }
 Fraction Fraction::operator/(Fraction f2) const{
     int y = denominator * f2.numerator;
     int x = numerator * f2.denominator;
     int t = gcd(y,x);
-    return Fraction(y/t,x/t);
+    return Fraction(x/t,y/t);
 }

@@ -10,4 +10,10 @@ struct Card
     Card(int s, int r);
     string to_string() const;
     bool operator==(const Card&) const;
+    bool operator<(const Card&) const;
+    bool operator>(const Card&) const;
+    bool operator>=(const Card&) const;
+    bool operator<=(const Card&) const;
+    void print_deck(const vector<Card>&) const;
+    vector<Card> deckbuild();
 };

@@ -33,7 +33,10 @@ struct Deck {
     void print() const;
     void swap_cards(int, int);
     void shuffle();
+    void sort();
 
 };
 
+
+int random_between(int , int);
 vector<Card> build_deck();

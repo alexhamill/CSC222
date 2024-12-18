@@ -50,4 +50,15 @@ TEST_CASE("Test swap_cards in Deck") {
     CHECK(d.cards[51].to_string() == "2 of Clubs");
 }
 
+TEST_CASE("shuffle and sort test") {
+    Deck d;
+    CHECK(d.cards[51].to_string() == "Ace of Spades");
+    CHECK(d.cards[0].to_string() == "2 of Clubs");
+    d.shuffle();
+    CHECK(d.cards[51].to_string() != "Ace of Spades");
+    CHECK(d.cards[0].to_string() != "2 of Clubs");
+    d.sort();
+    CHECK(d.cards[51].to_string() == "Ace of Spades");
+    CHECK(d.cards[0].to_string() == "2 of Clubs");
+}
 

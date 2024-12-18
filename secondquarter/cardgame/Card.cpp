@@ -1,6 +1,7 @@
 #include <doctest.h>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include <vector>
 #include "Card.h"
 using namespace std;
@@ -116,4 +117,19 @@ void Deck::shuffle()
     }
 }
 
-void Deck::
+void Deck::sort(){
+    int i = 0;
+    while(i<cards.size()){
+        if(i!=0){
+        if(cards[i]<cards[i-1]){
+            swap_cards(i,i-1);
+            i=0;
+        }
+        }
+        i++;
+    }
+}
+
+int random_between(int s, int f){
+    return (rand()%(f-s+1))+s;
+}

@@ -37,6 +37,7 @@ struct Deck {
     Deck subdeck(int,int) const;
     void add_card(const Card&);
     Card remove_card();
+    void add_cards(Deck);
 };
 
 void swap_cards(Card &, Card &);

@@ -161,3 +161,10 @@ void swap_cards(Card &c1, Card &c2){
     c1 = c2;
     c2 = temp;
 }
+
+void Deck::add_cards(Deck d2){
+    for(int i=0;i<d2.cards.size();i++){
+        cards.push_back(d2.cards[i]);
+    }
+}
+

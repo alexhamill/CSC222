@@ -168,20 +168,47 @@ void Deck::add_cards(Deck d2){
         cards.push_back(d2.cards[i]);
     }
 }
+Deck Deck::merge(const Deck l, const Deck r) const
+{
+    Deck result;
+    size_t i = 0, j = 0;
+    while (i < l.cards.size() && j < r.cards.size())
+    {
+        if (l.cards[i] < r.cards[j])
+        {
+            result.cards.push_back(l.cards[i]);
+            i++;
+        }
+        else
+        {
+            result.cards.push_back(r.cards[j]);
+            j++;
+        }
+    }
+    while (i < l.cards.size())
+    {
+        result.cards.push_back(l.cards[i]);
+        i++;
+    }
+    while (j < r.cards.size())
+    {
+        result.cards.push_back(r.cards[j]);
+        j++;
+    }
+    return result;
+}
 
 Deck Deck::merge_sort() const
 {   
     Deck d2;
     d2.cards = cards;
-    // if the deck is 0 or 1 cards, return it
-    if (d2.cards.size()<2){return d2;}
-    // find the midpoint of the deck
-    int midpoint = (d2.cards.size()>>1);
-    // divide the deck into two subdecks
-    Deck d3 = d2.subdeck(0,midpoint);
-    Deck d4 = d2.subdeck(midpoint+1,d2.cards.size()-1);
-    d3.merge_sort().add_cards(d4.merge_sort());
-    return d3;
-    // sort the subdecks using merge_sort
-    // merge the two halves and return the result
+    if (d2.cards.size() <= 1)
+    {
+        return d2;
+    }
+    int midpoint = (d2.cards.size()/2);
+    Deck d3 = d2.subdeck(0,midpoint-1);
+    Deck d4 = d2.subdeck(midpoint,d2.cards.size()-1);
+    return merge(d3.merge_sort(), d4.merge_sort());
+    
 }

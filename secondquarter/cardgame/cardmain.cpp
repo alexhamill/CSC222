@@ -5,7 +5,5 @@ using namespace std;
 #include "Card.h"
 
 int main (){
-    Card c1(1,2);
-    print_deck(Build_deck());
-    return 0;
+    Deck d1;
 }

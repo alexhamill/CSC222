@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 
+
 using namespace std;
 
     enum Suit {NONE, CLUBS, DIAMONDS, HEARTS, SPADES};
@@ -39,6 +40,7 @@ struct Deck {
     Card remove_card();
     void add_cards(Deck);
     Deck merge_sort() const;
+    Deck merge(Deck,Deck) const;
 };
 
 void swap_cards(Card &, Card &);

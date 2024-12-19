@@ -136,6 +136,7 @@ int random_between(int s, int f){
 
 Deck Deck::subdeck(int l, int h) const
 {
+    //includes both start and stop
     Deck sub(h-l+1);
 
     for (int i = 0; i < sub.cards.size(); i++) {
@@ -168,3 +169,19 @@ void Deck::add_cards(Deck d2){
     }
 }
 
+Deck Deck::merge_sort() const
+{   
+    Deck d2;
+    d2.cards = cards;
+    // if the deck is 0 or 1 cards, return it
+    if (d2.cards.size()<2){return d2;}
+    // find the midpoint of the deck
+    int midpoint = (d2.cards.size()>>1);
+    // divide the deck into two subdecks
+    Deck d3 = d2.subdeck(0,midpoint);
+    Deck d4 = d2.subdeck(midpoint+1,d2.cards.size()-1);
+    d3.merge_sort().add_cards(d4.merge_sort());
+    return d3;
+    // sort the subdecks using merge_sort
+    // merge the two halves and return the result
+}

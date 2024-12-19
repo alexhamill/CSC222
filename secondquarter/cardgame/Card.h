@@ -39,6 +39,6 @@ struct Deck {
     Card remove_card();
 };
 
-void swap_cards(Card, Card);
+void swap_cards(Card &, Card &);
 int random_between(int , int);
 vector<Card> build_deck();

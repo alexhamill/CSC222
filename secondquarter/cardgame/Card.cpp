@@ -156,7 +156,7 @@ Card Deck::remove_card()
     return card;
 }
 
-void swap_cards(Card c1, Card c2){
+void swap_cards(Card &c1, Card &c2){
     Card temp = c1;
     c1 = c2;
     c2 = temp;

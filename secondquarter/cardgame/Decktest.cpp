@@ -62,3 +62,23 @@ TEST_CASE("shuffle and sort test") {
     CHECK(d.cards[0].to_string() == "2 of Clubs");
 }
 
+TEST_CASE("Test remove_card and add_card") {
+    Deck deck;
+    deck.shuffle();
+    CHECK(deck.cards.size() == 52);
+    Card c = deck.remove_card();
+    CHECK(deck.cards.size() == 51);
+    Deck deck2(0);
+    CHECK(deck2.cards.size() == 0);
+    deck2.add_card(c);
+    CHECK(deck2.cards.size() == 1);
+    CHECK((deck2.cards[0] == c) == true);
+}
+
+TEST_CASE("Test can swap two random cards") {
+    Card c1(HEARTS, QUEEN);
+    Card c2(DIAMONDS, JACK);
+    swap_cards(&c1, &c2);
+    CHECK(c1.to_string() == "Jack of Diamonds");
+    CHECK(c2.to_string() == "Queen of Hearts");
+}

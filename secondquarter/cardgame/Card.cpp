@@ -133,3 +133,31 @@ void Deck::sort(){
 int random_between(int s, int f){
     return (rand()%(f-s+1))+s;
 }
+
+Deck Deck::subdeck(int l, int h) const
+{
+    Deck sub(h-l+1);
+
+    for (int i = 0; i < sub.cards.size(); i++) {
+        sub.cards[i] = cards[l+i];
+    }
+    return sub;
+}
+
+void Deck::add_card(const Card& c)
+{
+    cards.push_back(c);
+}
+
+Card Deck::remove_card()
+{
+    Card card = cards[cards.size()-1];
+    cards.pop_back();
+    return card;
+}
+
+void swap_cards(Card c1, Card c2){
+    Card temp = c1;
+    c1 = c2;
+    c2 = temp;
+}

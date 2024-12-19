@@ -34,9 +34,11 @@ struct Deck {
     void swap_cards(int, int);
     void shuffle();
     void sort();
-
+    Deck subdeck(int,int) const;
+    void add_card(const Card&);
+    Card remove_card();
 };
 
-
+void swap_cards(Card, Card);
 int random_between(int , int);
 vector<Card> build_deck();

@@ -39,8 +39,9 @@ struct Deck {
     void add_card(const Card&);
     Card remove_card();
     void add_cards(Deck);
-    Deck merge_sort() const;
-    Deck merge(Deck,Deck) const;
+    void merge_sort(int, int);
+    Deck merge_sort();
+    void merge(int, int, int);
 };
 
 void swap_cards(Card &, Card &);

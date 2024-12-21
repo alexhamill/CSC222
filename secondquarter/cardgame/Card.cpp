@@ -168,47 +168,49 @@ void Deck::add_cards(Deck d2){
         cards.push_back(d2.cards[i]);
     }
 }
-Deck Deck::merge(const Deck l, const Deck r) const
-{
-    Deck result;
-    size_t i = 0, j = 0;
-    while (i < l.cards.size() && j < r.cards.size())
-    {
-        if (l.cards[i] < r.cards[j])
-        {
-            result.cards.push_back(l.cards[i]);
-            i++;
-        }
-        else
-        {
-            result.cards.push_back(r.cards[j]);
-            j++;
+void Deck::merge(int left, int mid, int right) {
+    //temps to hold two halves
+    std::vector<Card> leftCards(cards.begin()+left, cards.begin()+mid+1);
+    std::vector<Card> rightCards(cards.begin()+mid+1, cards.begin()+right+1);
+
+    int i = 0, j = 0, k = left;
+    
+    //merge back into originial deck
+    while (i < leftCards.size() && j < rightCards.size()) {
+        if (leftCards[i] <= rightCards[j]) {
+            cards[k++] = leftCards[i++];
+        } else {
+            cards[k++] = rightCards[j++];
         }
     }
-    while (i < l.cards.size())
-    {
-        result.cards.push_back(l.cards[i]);
-        i++;
+
+    //copy remaining elements
+    while (i < leftCards.size()) {
+        cards[k++] = leftCards[i++];
     }
-    while (j < r.cards.size())
-    {
-        result.cards.push_back(r.cards[j]);
-        j++;
+    while (j < rightCards.size()) {
+        cards[k++] = rightCards[j++];
     }
-    return result;
 }
 
-Deck Deck::merge_sort() const
-{   
-    Deck d2;
-    d2.cards = cards;
-    if (d2.cards.size() <= 1)
-    {
-        return d2;
+Deck Deck::merge_sort(){
+    Deck temp = *this;
+    temp.merge_sort(0, cards.size()-1);
+    return temp;
+}
+
+void Deck::merge_sort(int left, int right) {
+    //base case
+    if (left >= right) {
+        return;
     }
-    int midpoint = (d2.cards.size()/2);
-    Deck d3 = d2.subdeck(0,midpoint-1);
-    Deck d4 = d2.subdeck(midpoint,d2.cards.size()-1);
-    return merge(d3.merge_sort(), d4.merge_sort());
+
+    //recursively sort both halves
+    int mid = left + (right - left) / 2;
+    merge_sort(left, mid);
+    merge_sort(mid + 1, right);
     
+    //merge sorted halves
+    merge(left, mid, right);
+
 }

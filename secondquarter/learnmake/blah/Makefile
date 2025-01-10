@@ -8,3 +8,5 @@ blah.o: blah.c
 blah.c:
 	echo "int main() { return 0; }" > blah.c # Runs first
 
+clean:
+	rm -f blah blah.o blah.c 

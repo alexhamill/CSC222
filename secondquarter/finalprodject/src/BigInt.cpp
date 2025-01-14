@@ -112,15 +112,19 @@ BigInt BigInt::operator+(const BigInt& num1) const {
         shortlength = digits.length();
     }
     c=shortlength;
-    for(int i = shortlength-1; i >= shortlength; i--){
-        curent = static_cast<int>(digits[i])+ static_cast<int>(num1.digits[i]) + carry;
+    for(int i = shortlength-1; i >= 0; i--){
+        curent = static_cast<int>(digits[i]-48)+ static_cast<int>(num1.digits[i]-48) + carry;
+        
         carry = 0;
         if(curent >= 10){
             carry = 1;
             curent -= 10;
         }
         c--;
-        output.digits[i] = char(curent);
+        output.digits[i] = char(curent+48);
+    }
+    if (carry==1){
+        output.digits[c-1] = output.digits[c-1] + 1; 
     }
     
     

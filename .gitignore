@@ -37,3 +37,4 @@ Temporary Items
 *.gch
 *.o
 # End of https://www.toptal.com/developers/gitignore/api/macos
+build

@@ -13,7 +13,7 @@ build/test_bigints: build/test_bigints.o build/BigInt.o
 
 .PHONY: test all clean
 
-test_bigints: build/test_bigints
+test: build/test_bigints
 	./build/test_bigints
 
 clean:

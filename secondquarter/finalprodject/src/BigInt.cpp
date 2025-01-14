@@ -91,3 +91,41 @@ bool BigInt::operator>=(const BigInt& num1) const{
 bool BigInt::operator<=(const BigInt& num1) const{
     return !(*this > num1);
 }
+
+BigInt BigInt::operator=(const BigInt& num1) const {
+    BigInt output;
+    if(*this>=num1.digits){
+        output.digits = digits;
+        output.negative = negative;
+    }else{
+        output.digits = num1.digits;
+        output.negative = num1.negative;
+    }
+    
+    int length = digits.length();
+    int shortlength = num1.digits.length();
+    int curent;
+    int carry;
+    int c = 0;
+    if (num1.digits.length() > length) {
+        length = num1.digits.length();
+        shortlength = digits.length();
+    }
+    c=shortlength;
+    for(int i = shortlength-1; i >= shortlength; i--){
+        current = std::to_int(digits[i])+ std::to_int(num1.digits[i]) + carry;
+        output[i] = std::to_string(current);
+        carry = 0;
+        if(curent >= 10){
+            carry = 1;
+            current -= 10;
+        }
+        c--;
+    }
+
+    while(c>0){
+        current = to_int(digits[i]);
+        output[i] = std::to_string(current);
+    }
+    return output;
+    }

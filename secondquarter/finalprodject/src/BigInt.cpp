@@ -92,7 +92,7 @@ bool BigInt::operator<=(const BigInt& num1) const{
     return !(*this > num1);
 }
 
-BigInt BigInt::operator=(const BigInt& num1) const {
+BigInt BigInt::operator+(const BigInt& num1) const {
     BigInt output;
     if(*this>=num1.digits){
         output.digits = digits;
@@ -113,19 +113,16 @@ BigInt BigInt::operator=(const BigInt& num1) const {
     }
     c=shortlength;
     for(int i = shortlength-1; i >= shortlength; i--){
-        current = std::to_int(digits[i])+ std::to_int(num1.digits[i]) + carry;
-        output[i] = std::to_string(current);
+        curent = static_cast<int>(digits[i])+ static_cast<int>(num1.digits[i]) + carry;
         carry = 0;
         if(curent >= 10){
             carry = 1;
-            current -= 10;
+            curent -= 10;
         }
         c--;
+        output.digits[i] = char(curent);
     }
-
-    while(c>0){
-        current = to_int(digits[i]);
-        output[i] = std::to_string(current);
-    }
+    
+    
     return output;
     }

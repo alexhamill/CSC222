@@ -96,7 +96,9 @@ TEST_CASE("Test can add BigInts") {
     BigInt i2("321");
     BigInt i3("43210");
     BigInt i4("9999");
-    BigInt i5("1");
+    BigInt i5("9");
+    BigInt i6("9");
     CHECK((i1 + i2).to_string() == "444");
-    CHECK((i1 + i3).to_string() == "43333");
+    CHECK((i3 + i4).to_string() == "53209");
+    CHECK((i5 + i6).to_string() == "18");
 }

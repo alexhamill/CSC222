@@ -94,6 +94,7 @@ bool BigInt::operator<=(const BigInt& num1) const{
 
 BigInt BigInt::operator+(const BigInt& num1) const {
     BigInt output;
+    
     if(*this>=num1.digits){
         output.digits = digits;
         output.negative = negative;
@@ -101,19 +102,20 @@ BigInt BigInt::operator+(const BigInt& num1) const {
         output.digits = num1.digits;
         output.negative = num1.negative;
     }
-    
+    BigInt longer = output;
     int length = digits.length();
     int shortlength = num1.digits.length();
     int curent;
-    int carry;
+    int carry = 0;
     int c = 0;
     if (num1.digits.length() > length) {
         length = num1.digits.length();
         shortlength = digits.length();
     }
     c=shortlength;
-    for(int i = shortlength-1; i >= 0; i--){
-        curent = static_cast<int>(digits[i]-48)+ static_cast<int>(num1.digits[i]-48) + carry;
+    int y=0;
+    for(int i = shortlength; i >= 0; i--){
+        curent = static_cast<int>(digits[digits.length()-y]-48)+ static_cast<int>(num1.digits[num1.digits.length()-y]-48) + carry;
         
         carry = 0;
         if(curent >= 10){
@@ -121,12 +123,17 @@ BigInt BigInt::operator+(const BigInt& num1) const {
             curent -= 10;
         }
         c--;
+        y++;
         output.digits[i] = char(curent+48);
     }
-    if (carry==1){
-        output.digits[c-1] = output.digits[c-1] + 1; 
+     if (carry > 0) {
+        if(digits.length() == num1.digits.length()){
+            output.digits.insert(output.digits.begin(), carry + '0');
+        } else {
+            output.digits.insert(output.digits.begin(), output.digits[digits.length()-y] + carry + '0' - 47);
+            output.digits.pop_back();
+        }
+        
     }
-    
-    
     return output;
     }

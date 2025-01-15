@@ -105,26 +105,25 @@ BigInt BigInt::operator+(const BigInt& num1) const {
     BigInt longer = output;
     int length = digits.length();
     int shortlength = num1.digits.length();
-    int curent;
+    int curent = 0;
     int carry = 0;
     int c = 0;
     if (num1.digits.length() > length) {
         length = num1.digits.length();
         shortlength = digits.length();
     }
-    c=shortlength;
     int y=0;
-    for(int i = shortlength; i >= 0; i--){
-        curent = static_cast<int>(digits[digits.length()-y]-48)+ static_cast<int>(num1.digits[num1.digits.length()-y]-48) + carry;
+    for(int i = 0; i <= shortlength; i++){
+        curent = static_cast<int>(digits[digits.length()-i]-48)+ static_cast<int>(num1.digits[num1.digits.length()-i]-48) + carry;
         
         carry = 0;
         if(curent >= 10){
             carry = 1;
             curent -= 10;
         }
-        c--;
+        output.digits[length - i] = char(curent+48);
         y++;
-        output.digits[i] = char(curent+48);
+        curent = 0;
     }
      if (carry > 0) {
         if(digits.length() == num1.digits.length()){

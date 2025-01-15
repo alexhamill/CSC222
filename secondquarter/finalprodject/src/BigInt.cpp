@@ -130,7 +130,7 @@ BigInt BigInt::operator+(const BigInt& num1) const {
         if(digits.length() == num1.digits.length()){
             output.digits.insert(output.digits.begin(), carry + '0');
         } else {
-            output.digits.insert(output.digits.begin(), output.digits[digits.length()-y] + carry + '0' - 47);
+            output.digits.insert(output.digits.begin(), output.digits[longer.digits.length()-y] + carry + '0' - 47);
             output.digits.pop_back();
         }
         

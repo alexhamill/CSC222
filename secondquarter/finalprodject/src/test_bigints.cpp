@@ -135,4 +135,17 @@ TEST_CASE("Test can subtract BigInts") {
     CHECK((i5 - i6).to_string() == "-999900000");
     CHECK((i7 - i8).to_string() == "100");
 }
-
+TEST_CASE("Test can subtract negitive BigInts") {
+    BigInt i1("-123");
+    BigInt i2("321");
+    BigInt i3("-43210");
+    BigInt i4("9999");
+    BigInt i5("99999");
+    BigInt i6("-999999999");
+    BigInt i7("109");
+    BigInt i8("9");
+    CHECK((i2 - i1).to_string() == "444");
+    CHECK((i3 - i4).to_string() == "33211");
+    CHECK((i5 - i6).to_string() == "1000099998");
+    CHECK((i7 - i8).to_string() == "100");
+}

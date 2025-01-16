@@ -156,6 +156,13 @@ BigInt BigInt::operator+(const BigInt& num1) const {
         output.negative = true;
         return output;
     }
+    if(num1.negative && !negative){
+        BigInt temp1 = *this;
+        BigInt temp2 = num1;
+        temp2.negative = false;
+        output = temp1 + temp2;
+        return output;
+    }
     // if (num1>*this && num1.negative && !negative){ 
     //     BigInt temp1 = *this;
     //     BigInt temp2 = num1;

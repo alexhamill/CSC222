@@ -133,21 +133,31 @@ BigInt BigInt::operator+(const BigInt& num1) const {
 
 
     BigInt BigInt::operator-(const BigInt& num1) const {
-        BigInt output;
-        int curent = 0;
-        int carry = 0;
-        int fl = digits.length();
-        int sl = num1.digits.length();
+    BigInt output;
+    int carry = 0;
+    int fl = digits.length();
+    int sl = num1.digits.length();
 
-        for(int i = digits.length(); i < num1.digits.length(); i++){
-            if((digits[i]-carry) > num1.digits[i]){
-                curent = (digits[fl - 1 - i ]- carry) - (num1.digits[sl - 1 - i] - '0' );
-                carry = 0;
-            } else {
-                carry = -1;
-                curent = (digits[fl - 1 - i] - '0') - (num1.digits[sl - 1 - i] - '0') + 10;
-            }
-            output.digits.insert(output.digits.begin(), curent + '0');
+    for (int i = 0; i < fl; i++) {
+        int d1 = (fl - 1 - i >= 0) ? digits[fl - 1 - i] - '0' : 0;
+        int d2 = (sl - 1 - i >= 0) ? num1.digits[sl - 1 - i] - '0' : 0;
+        
+        int curent = d1 - d2 - carry;
+        
+        if (curent < 0) {
+            curent += 10;
+            carry = 1;
+        } else {
+            carry = 0;
         }
-        return output;  
+        
+        output.digits.insert(output.digits.begin(), curent + '0');
     }
+
+    while (output.digits.length() > 1 && output.digits[0] == '0') {
+        output.digits.erase(output.digits.begin());
+    }
+    output.digits.pop_back();
+    return output;
+}
+

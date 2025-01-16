@@ -99,9 +99,9 @@ BigInt BigInt::operator+(const BigInt& num1) const {
     if (negative && num1.negative) {
         output.negative = true;
     } else if (negative && !num1.negative){
-        return (num1 - *this);
+        return ((num1) - (*this));
     } else if (!negative && num1.negative){
-        return (*this - num1);
+        return ((*this) - (num1));
     }
     if (*this >= num1) {
         longer = this;
@@ -143,8 +143,16 @@ BigInt BigInt::operator+(const BigInt& num1) const {
     int carry = 0;
     int fl = digits.length();
     int sl = num1.digits.length();
-    if(num1>*this){
+    if(num1>*this && !num1.negative && !negative){
         output = num1 - *this;
+        output.negative = true;
+        return output;
+    }
+    if (num1>*this && num1.negative && !negative){ 
+        BigInt temp1 = *this;
+        BigInt temp2 = num1;
+        temp2.negative = false;
+        output = temp2 - temp1;
         output.negative = true;
         return output;
     }

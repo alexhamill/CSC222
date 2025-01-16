@@ -99,9 +99,17 @@ BigInt BigInt::operator+(const BigInt& num1) const {
     if (negative && num1.negative) {
         output.negative = true;
     } else if (negative && !num1.negative){
-        return ((num1) - (*this));
+        BigInt temp1 = *this;
+        BigInt temp2 = num1;
+        temp1.negative = false;
+        temp2.negative = false;
+        return ((temp2) - (temp1));
     } else if (!negative && num1.negative){
-        return ((*this) - (num1));
+        BigInt temp1 = *this;
+        BigInt temp2 = num1;
+        temp1.negative = false;
+        temp2.negative = false;
+        return ((temp1) - (temp2));
     }
     if (*this >= num1) {
         longer = this;
@@ -148,14 +156,14 @@ BigInt BigInt::operator+(const BigInt& num1) const {
         output.negative = true;
         return output;
     }
-    if (num1>*this && num1.negative && !negative){ 
-        BigInt temp1 = *this;
-        BigInt temp2 = num1;
-        temp2.negative = false;
-        output = temp2 - temp1;
-        output.negative = true;
-        return output;
-    }
+    // if (num1>*this && num1.negative && !negative){ 
+    //     BigInt temp1 = *this;
+    //     BigInt temp2 = num1;
+    //     temp2.negative = false;
+    //     output = temp2 - temp1;
+    //     output.negative = true;
+    //     return output;
+    // }
     
     for (int i = 0; i < fl; i++) {
         int d1 = (fl - 1 - i >= 0) ? digits[fl - 1 - i] - '0' : 0;

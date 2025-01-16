@@ -149,3 +149,18 @@ TEST_CASE("Test can subtract negitive BigInts") {
     CHECK((i5 - i6).to_string() == "1000099998");
     CHECK((i7 - i8).to_string() == "100");
 }
+
+TEST_CASE("Test can multiply BigInts") {
+    BigInt i1("9");
+    BigInt i2("9");
+    BigInt i3("9");
+    BigInt i4("10");
+    BigInt i5("199999999999");
+    BigInt i6("1999999999999999");
+    BigInt i7("3");
+    BigInt i8("3");
+    CHECK((i2 * i1).to_string() == "81");
+    CHECK((i3 * i4).to_string() == "90");
+    CHECK((i5 * i6).to_string() == "3781");
+    CHECK((i7 * i8).to_string() == "9");
+}

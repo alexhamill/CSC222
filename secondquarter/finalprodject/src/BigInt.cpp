@@ -146,7 +146,7 @@ BigInt BigInt::operator+(const BigInt& num1) const {
 }
 
 
-    BigInt BigInt::operator-(const BigInt& num1) const {
+BigInt BigInt::operator-(const BigInt& num1) const {
     BigInt output;
     int carry = 0;
     int fl = digits.length();
@@ -192,6 +192,16 @@ BigInt BigInt::operator+(const BigInt& num1) const {
         output.digits.erase(output.digits.begin());
     }
     output.digits.pop_back();
+    return output;
+}
+BigInt BigInt::operator*(const BigInt& num1) const {
+    BigInt counter("0");
+    BigInt output("0");
+    BigInt one("1");
+    while(counter < num1){
+        output = output + *this;
+        counter = counter + one;
+    }
     return output;
 }
 

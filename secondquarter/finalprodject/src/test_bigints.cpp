@@ -106,7 +106,22 @@ TEST_CASE("Test can add BigInts") {
     CHECK((i7 + i8).to_string() == "118");
 }
 
-TEST_CASE("Test can add BigInts") {
+TEST_CASE("Test can add negitive BigInts") {
+    BigInt i1("-123");
+    BigInt i2("321");
+    BigInt i3("43210");
+    BigInt i4("-9999");
+    BigInt i5("99999");
+    BigInt i6("-999999999");
+    BigInt i7("109");
+    BigInt i8("-10");
+    CHECK((i1 + i2).to_string() == "198");
+    CHECK((i3 + i4).to_string() == "33211");
+    CHECK((i5 + i6).to_string() == "-999900000");
+    CHECK((i8 + i7).to_string() == "99");
+}
+
+TEST_CASE("Test can subtract BigInts") {
     BigInt i1("123");
     BigInt i2("321");
     BigInt i3("43210");

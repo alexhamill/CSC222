@@ -96,7 +96,13 @@ BigInt BigInt::operator+(const BigInt& num1) const {
     BigInt output;
     const BigInt* longer;
     const BigInt* shorter;
-    
+    if (negative && num1.negative) {
+        output.negative = true;
+    } else if (negative && !num1.negative){
+        return num1 - *this;
+    } else if (!negative && num1.negative){
+        return *this - num1;
+    }
     if (*this >= num1) {
         longer = this;
         shorter = &num1;

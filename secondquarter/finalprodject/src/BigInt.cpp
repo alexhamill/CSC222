@@ -132,3 +132,22 @@ BigInt BigInt::operator+(const BigInt& num1) const {
 }
 
 
+    BigInt BigInt::operator-(const BigInt& num1) const {
+        BigInt output;
+        int curent = 0;
+        int carry = 0;
+        int fl = digits.length();
+        int sl = num1.digits.length();
+
+        for(int i = digits.length(); i < num1.digits.length(); i++){
+            if((digits[i]-carry) > num1.digits[i]){
+                curent = (digits[fl - 1 - i ]- carry) - (num1.digits[sl - 1 - i] - '0' );
+                carry = 0;
+            } else {
+                carry = -1;
+                curent = (digits[fl - 1 - i] - '0') - (num1.digits[sl - 1 - i] - '0') + 10;
+            }
+            output.digits.insert(output.digits.begin(), curent + '0');
+        }
+        return output;  
+    }

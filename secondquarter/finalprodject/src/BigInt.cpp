@@ -94,45 +94,41 @@ bool BigInt::operator<=(const BigInt& num1) const{
 
 BigInt BigInt::operator+(const BigInt& num1) const {
     BigInt output;
+    const BigInt* longer;
+    const BigInt* shorter;
     
-    if(*this>=num1.digits){
-        output.digits = digits;
-        output.negative = negative;
-    }else{
-        output.digits = num1.digits;
-        output.negative = num1.negative;
+    if (*this >= num1) {
+        longer = this;
+        shorter = &num1;
+    } else {
+        longer = &num1;
+        shorter = this;
     }
-    BigInt longer = output;
-    int length = digits.length();
-    int shortlength = num1.digits.length();
-    int curent = 0;
+    
+    output.digits = longer->digits;
+    output.negative = longer->negative;
+
     int carry = 0;
-    int c = 0;
-    if (num1.digits.length() > length) {
-        length = num1.digits.length();
-        shortlength = digits.length();
+    int curent = 0;
+    int length = longer->digits.length();
+    int shortlength = shorter->digits.length();
+
+    for (int i = 0; i < shortlength; i++) {
+        curent = (longer->digits[length - 1 - i] - '0') +  (shorter->digits[shortlength - 1 - i] - '0') + carry;
+        carry = curent / 10;
+        output.digits[length - 1 - i] = (curent % 10) + '0';
     }
-    int y=0;
-    for(int i = 0; i <= shortlength; i++){
-        curent = static_cast<int>(digits[digits.length()-i]-48)+ static_cast<int>(num1.digits[num1.digits.length()-i]-48) + carry;
-        
-        carry = 0;
-        if(curent >= 10){
-            carry = 1;
-            curent -= 10;
-        }
-        output.digits[length - i] = char(curent+48);
-        y++;
-        curent = 0;
+    for (int i = shortlength; i < length; i++) {
+        curent = (longer->digits[length - 1 - i] - '0') + carry;
+        carry = curent / 10;
+        output.digits[length - 1 - i] = (curent % 10) + '0';
     }
-     if (carry > 0) {
-        if(digits.length() == num1.digits.length()){
-            output.digits.insert(output.digits.begin(), carry + '0');
-        } else {
-            output.digits.insert(output.digits.begin(), output.digits[longer.digits.length()-y] + carry + '0' - 47);
-            output.digits.pop_back();
-        }
-        
+
+    if (carry > 0) {
+        output.digits.insert(output.digits.begin(), carry + '0');
     }
+
     return output;
-    }
+}
+
+

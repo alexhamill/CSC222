@@ -224,5 +224,11 @@ BigInt BigInt::operator*(const BigInt& num1) const {
     output.digits.pop_back();
     return output;
 }
+BigInt BigInt::operator/(const BigInt& num1) const {
+    
 
+
+
+    
+}
 

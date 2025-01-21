@@ -195,13 +195,34 @@ BigInt BigInt::operator-(const BigInt& num1) const {
     return output;
 }
 BigInt BigInt::operator*(const BigInt& num1) const {
-    BigInt counter("0");
-    BigInt output("0");
-    BigInt one("1");
-    while(counter < num1){
-        output = output + *this;
-        counter = counter + one;
+    BigInt output;
+    int fl = digits.length();
+    int sl = num1.digits.length();
+    int carry = 0;
+    int curent = 0;
+    int temp = 0;
+    for (int i = 0; i < fl + sl; i++) {
+        output.digits.insert(output.digits.begin(), '0');
     }
+    for (int i = 0; i < sl; i++) {
+        for (int j = 0; j < fl; j++) {
+            curent = (digits[fl - 1 - j] - '0') * (num1.digits[sl - 1 - i] - '0') + carry;
+            carry = curent / 10;
+            temp = output.digits[fl + sl - 1 - i - j] - '0' + curent % 10;
+            output.digits[fl + sl - 1 - i - j] = temp % 10 + '0';
+            carry += temp / 10;
+        }
+        output.digits[fl + sl - 1 - fl - i] = carry + '0';
+        carry = 0;
+    }
+    while (output.digits.length() > 1 && output.digits[0] == '0') {
+        output.digits.erase(output.digits.begin());
+    }
+    if ((negative && !num1.negative) || (!negative && num1.negative)) {
+        output.negative = true;
+    }
+    output.digits.pop_back();
     return output;
 }
+
 

@@ -225,6 +225,14 @@ BigInt BigInt::operator*(const BigInt& num1) const {
     return output;
 }
 BigInt BigInt::operator/(const BigInt& num1) const {
-    
-}
+    BigInt output;
+    if(num1 > *this){
+        BigInt zero("0");
+        return zero;
+    }
+    if(digits[0] % num1.digits[0] == 0){
+        output.push_back(digits[0] / num1.digits[0]);
+    }
 
+    return output;
+}

@@ -226,9 +226,5 @@ BigInt BigInt::operator*(const BigInt& num1) const {
 }
 BigInt BigInt::operator/(const BigInt& num1) const {
     
-
-
-
-    
 }
 

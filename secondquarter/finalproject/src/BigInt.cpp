@@ -230,9 +230,14 @@ BigInt BigInt::operator/(const BigInt& num1) const {
         BigInt zero("0");
         return zero;
     }
+    if(num1 == *this){
+        BigInt one("1");
+        return one;
+    }
     if(digits[0] % num1.digits[0] == 0){
         output.push_back(digits[0] / num1.digits[0]);
     }
+
 
     return output;
 }

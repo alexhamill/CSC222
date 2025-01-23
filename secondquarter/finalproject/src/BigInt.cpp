@@ -238,7 +238,7 @@ BigInt BigInt::operator/(const BigInt& num1) const {
         return *this;
     }
     if(digits[0] % num1.digits[0] == 0){
-        output.push_back(digits[0] / num1.digits[0]);
+        output.digits.push_back(digits[0] / num1.digits[0]);
     }
 
 

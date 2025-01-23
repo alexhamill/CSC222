@@ -234,6 +234,9 @@ BigInt BigInt::operator/(const BigInt& num1) const {
         BigInt one("1");
         return one;
     }
+    if(num1 == BigInt("1")){
+        return *this;
+    }
     if(digits[0] % num1.digits[0] == 0){
         output.push_back(digits[0] / num1.digits[0]);
     }

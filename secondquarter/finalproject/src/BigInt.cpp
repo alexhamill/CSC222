@@ -224,23 +224,23 @@ BigInt BigInt::operator*(const BigInt& num1) const {
     output.digits.pop_back();
     return output;
 }
-BigInt BigInt::operator/(const BigInt& num1) const {
-    BigInt output;
-    if(num1 > *this){
-        BigInt zero("0");
-        return zero;
-    }
-    if(num1 == *this){
-        BigInt one("1");
-        return one;
-    }
-    if(num1 == BigInt("1")){
-        return *this;
-    }
-    if(digits[0] % num1.digits[0] == 0){
-        output.digits.push_back(digits[0] / num1.digits[0]);
-    }
-
-
-    return output;
-}
+// BigInt BigInt::operator/(const BigInt& num1) const {
+//     BigInt output;
+//     if(num1 > *this){
+//         BigInt zero("0");
+//         return zero;
+//     }
+//     if(num1 == *this){
+//         BigInt one("1");
+//         return one;
+//     }
+//     if(num1 == BigInt("1")){
+//         return *this;
+//     }
+//     if(digits[0] % num1.digits[0] == 0){
+//         output.digits.push_back(digits[0] / num1.digits[0]);
+//     }else{
+//         output.digits.push_back(digits[0] / num1.digits[0]);
+//     }
+//     return output;
+// }
